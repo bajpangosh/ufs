@@ -22,7 +22,7 @@ sudo sed -i -e "s/rootdomain.adat.in/rootdomain.$DOMAIN.adat.in/" "$DOMAIN.adat.
 sudo ln -s /etc/nginx/sites-available/"app.$DOMAIN.adat.in" /etc/nginx/sites-enabled/
 sudo ln -s /etc/nginx/sites-available/"$DOMAIN.adat.in" /etc/nginx/sites-enabled/
 sudo mkdir -p /var/www/"$DOMAIN.adat.in"
-sudo mkdir -p /projects/"app.$DOMAIN.adat.in"
+sudo mkdir -p /root/projects/"app.$DOMAIN.adat.in"
 echo
 echo
 tput setaf 2; echo "Here is your Credentials"
