@@ -1,7 +1,9 @@
 #!/bin/bash
 # GET ALL USER INPUT
-echo "App Name (eg. example google)?"
-read DOMAIN
+echo "App Name (eg. example just google)?"
+read DOMAINROOT
+echo "App Name (eg. example googleapi)?"
+read DOMAINAPI
 echo "App PORT (8085)"
 read APP_PORT
 tput setaf 2; echo 'Wellcome to Node Server and Dashboard on Ubuntu 20.04 install bash script';
@@ -12,18 +14,17 @@ tput setaf 2; echo 'installing Node Js and Nginx Server';
 sleep 2;
 tput sgr0
 cd /etc/nginx/sites-available/
-sudo wget -O "app.$DOMAIN.adat.in" https://raw.githubusercontent.com/bajpangosh/ufs/main/apidomain.conf
-sudo sed -i -e "s/apidomain.adat.in/app.$DOMAIN.adat.in/" "app.$DOMAIN.adat.in"
-#sudo sed -i -e "s/PORT/$PORT/" "app.$DOMAIN.adat.in"
-sudo sed -i 's/PORT/$PORT/g' app.$DOMAIN.adat.in
+sudo wget -O "$DOMAINAPI.adat.in" https://raw.githubusercontent.com/bajpangosh/ufs/main/apidomain.conf
+sudo sed -i -e "s/porthere/$APP_PORT/" "$DOMAINAPI.adat.in"
+sudo sed -i -e "s/apidomain.com/$DOMAINAPI/" "$DOMAINAPI.adat.in"
 
-sudo wget -O "$DOMAIN.adat.in" https://raw.githubusercontent.com/bajpangosh/ufs/main/rootdomain.conf
-sudo sed -i -e "s/rootdomain.adat.in/rootdomain.$DOMAIN.adat.in/" "$DOMAIN.adat.in"
+sudo wget -O "$DOMAINROOT.adat.in" https://raw.githubusercontent.com/bajpangosh/ufs/main/rootdomain.conf
+sudo sed -i -e "s/rootdomain.com/$DOMAINROOT.adat.in/" "$DOMAINROOT.adat.in"
 
-sudo ln -s /etc/nginx/sites-available/"app.$DOMAIN.adat.in" /etc/nginx/sites-enabled/
-sudo ln -s /etc/nginx/sites-available/"$DOMAIN.adat.in" /etc/nginx/sites-enabled/
-sudo mkdir -p /var/www/"$DOMAIN.adat.in"
-sudo mkdir -p /root/projects/"app.$DOMAIN.adat.in"
+sudo ln -s /etc/nginx/sites-available/"$DOMAINAPI.adat.in" /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/"$DOMAINROOT.adat.in" /etc/nginx/sites-enabled/
+sudo mkdir -p /var/www/"$DOMAINROOT.adat.in"
+sudo mkdir -p /root/projects/"$DOMAINAPI.adat.in"
 echo
 echo
 tput setaf 2; echo "Here is your Credentials"
@@ -31,8 +32,8 @@ echo "--------------------------------"
 echo "APP_PORT:   $APP_PORT"
 echo
 echo
-echo "App:        https://app.$DOMAIN.adat.in"
-echo "Web:        https://$DOMAIN.adat.in"
+echo "App:        https://$DOMAINAPI.adat.in"
+echo "Web:        https://$DOMAINROOT.adat.in"
 echo
 echo "--------------------------------"
 tput sgr0
