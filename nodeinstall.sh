@@ -25,6 +25,7 @@ sudo ln -s /etc/nginx/sites-available/"$DOMAINAPI.adat.in" /etc/nginx/sites-enab
 sudo ln -s /etc/nginx/sites-available/"$DOMAINROOT.adat.in" /etc/nginx/sites-enabled/
 sudo mkdir -p /var/www/"$DOMAINROOT.adat.in"
 sudo mkdir -p /root/projects/"$DOMAINAPI.adat.in"
+sudo systemctl restart nginx.service
 echo
 echo
 tput setaf 2; echo "Here is your Credentials"
