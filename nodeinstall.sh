@@ -16,7 +16,7 @@ tput sgr0
 cd /etc/nginx/sites-available/
 sudo wget -O "$DOMAINAPI.adat.in" https://raw.githubusercontent.com/bajpangosh/ufs/main/apidomain.conf
 sudo sed -i -e "s/porthere/$APP_PORT/" "$DOMAINAPI.adat.in"
-sudo sed -i -e "s/apidomain.com/$DOMAINAPI/" "$DOMAINAPI.adat.in"
+sudo sed -i -e "s/apidomain.com/$DOMAINAPI.adat.in/" "$DOMAINAPI.adat.in"
 
 sudo wget -O "$DOMAINROOT.adat.in" https://raw.githubusercontent.com/bajpangosh/ufs/main/rootdomain.conf
 sudo sed -i -e "s/rootdomain.com/$DOMAINROOT.adat.in/" "$DOMAINROOT.adat.in"
